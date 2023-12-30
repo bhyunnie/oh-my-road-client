@@ -1,9 +1,42 @@
+@font-face {
+  font-family: "NotoSansKR-Regular";
+  font-weight: normal;
+  src: url("./assets/fonts/NotoSansKR-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "NotoSans-Regular";
+  font-weight: normal;
+  src: url("./assets/fonts/NotoSans-Regular.ttf") format("truetype");
+}
+
+:root {
+  /* 군인테마 */
+  --military-brown: #dad7cd;
+  --military-white-green: #a3b18a;
+  --military-green: #588157;
+  --military-deep-green: #3a5a40;
+  --military-dark-green: #344e41;
+
+  /* 녹갈테마 */
+  --greenBrown-white-green: #606c38;
+  --greenBrown-deep-green: #283618;
+  --greenBrown-cream-white: #fefae0;
+  --greenBrown-white-brown: #dda15e;
+  --greenBrown-brown: #bc6c25;
+}
+
 html,
 body {
   margin: 0;
   padding: 0;
   width: 100%;
   height: 100%;
+  font-family: "NotoSansKR-Regular", "NotoSans-Regular";
+}
+
+button {
+  border: 0px;
 }
 
 li {

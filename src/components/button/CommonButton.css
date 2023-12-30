@@ -1,0 +1,9 @@
+.common-button {
+  cursor: pointer;
+  background-color: white;
+  color: #333;
+  width: 64px;
+  height: 64px;
+  border-radius: 0;
+  font-weight: 600;
+}

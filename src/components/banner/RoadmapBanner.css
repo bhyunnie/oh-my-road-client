@@ -1,0 +1,57 @@
+#roadmap-banner {
+  background-repeat: round;
+  min-width: 1400px;
+  background-color: var(--military-white-green);
+}
+
+#roadmap-banner > .wrapper {
+  width: 700px;
+  height: 100%;
+  padding: 0;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#roadmap-banner > .wrapper h1 {
+  margin: 0 0 3px 0;
+}
+
+#roadmap-banner > .wrapper > article {
+  margin: 100px 0 0 0;
+  text-align: center;
+}
+
+#roadmap-banner .statistics-summary {
+  width: 400px;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  margin: 50px 0 0 0;
+}
+
+#roadmap-banner .statistics-summary div:nth-child(1) {
+  border-right: 1px solid var(--military-green);
+}
+
+#roadmap-banner .statistics-summary div {
+  flex-grow: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#roadmap-banner > .wrapper > .button-wrapper {
+  width: 400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 70px 0 0 0;
+}
+
+#roadmap-banner > .wrapper > .button-wrapper > button {
+  flex-grow: 1;
+  font-size: 16px;
+}
