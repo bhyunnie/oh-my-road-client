@@ -1,5 +1,5 @@
 import "./GlobalNavigationBar.css";
-import logoImage from "../../assets/images/logo.jpg";
+import logoImage from "../../assets/images/logo.png";
 
 const GlobalNavigationBar = () => {
   return (

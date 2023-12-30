@@ -1,0 +1,27 @@
+.slick-banner {
+  width: 100%;
+  height: 100px;
+}
+
+.slick-banner > .wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+  overflow-y: hidden;
+}
+
+.slick-banner > .wrapper > .banners-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.slick-banner > .wrapper div {
+  height: 100px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.slick-banner > .wrapper div > img {
+  width: 100%;
+  height: 100px;
+}
