@@ -12,17 +12,16 @@ const RoadmapBanner = ({ width, height }) => {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
 
   useEffect(() => {
-    try {
-      axios
-        .get("http://localhost:8080/api/user/count?userId=qwe", {
-          withCredentials: true,
-        })
-        .then((response) => {
-          if (response.data) setMemberCount(response.data.count);
-        });
-    } catch (error) {
-      console.log(error);
-    }
+    axios
+      .get("http://localhost:8080/api/user/count?userId=qwe", {
+        withCredentials: true,
+      })
+      .then((response) => {
+        if (response.data) setMemberCount(response.data.count);
+      })
+      .catch((error) => {
+        // TODO 에러 핸들링 어떻게 할까.. 고민좀 해보자
+      });
   }, []);
 
   useEffect(() => {
