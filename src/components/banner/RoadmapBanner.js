@@ -2,14 +2,13 @@ import "./RoadmapBanner.css";
 // import roadmapBannerImage from "../../assets/images/logo.jpg";
 import CommonButton from "../button/CommonButton";
 import militaryColorTheme from "../../util/colors/theme/military.json";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import axios from "axios";
-import LoginModal from "../modal/LoginModal";
+import { ModalContext } from "../../context/ModalContext";
 
 const RoadmapBanner = ({ width, height }) => {
   const [memberCount, setMemberCount] = useState(0);
-  const [isHelpModalOpen, setIsHelpModalOpen] = useState(false);
-  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const { openModal } = useContext(ModalContext);
 
   useEffect(() => {
     axios
@@ -23,23 +22,6 @@ const RoadmapBanner = ({ width, height }) => {
         // TODO 에러 핸들링 어떻게 할까.. 고민좀 해보자
       });
   }, []);
-
-  useEffect(() => {
-    console.log(isHelpModalOpen);
-  }, [isHelpModalOpen]);
-
-  const helpModalOpen = (e) => {
-    if (!isHelpModalOpen) {
-      setIsHelpModalOpen(true);
-    }
-  };
-
-  const loginModalOpen = (e) => {
-    if (!isLoginModalOpen) {
-      setIsLoginModalOpen(true);
-    }
-  };
-
   return (
     <div
       id="roadmap-banner"
@@ -50,7 +32,6 @@ const RoadmapBanner = ({ width, height }) => {
       }}
     >
       <div className="wrapper">
-        <LoginModal status={isLoginModalOpen}></LoginModal>
         <article>
           <h1>개발자를 준비하는 모든 사람들의 미래를 향한 나침반</h1>
           <span>개발자로서의 밝은 미래를 향해 함께 걸어보세요</span>
@@ -73,7 +54,9 @@ const RoadmapBanner = ({ width, height }) => {
             borderSize={2}
             borderColor={"transparent"}
             radius={5}
-            callback={helpModalOpen}
+            callback={() => {
+              openModal({ name: "help", index: 1 });
+            }}
           >
             도움말
           </CommonButton>
@@ -84,7 +67,9 @@ const RoadmapBanner = ({ width, height }) => {
             borderSize={2}
             color={militaryColorTheme["--military-dark-green"]}
             fontColor={"white"}
-            callback={loginModalOpen}
+            callback={() => {
+              openModal({ name: "discordLogin", index: 1 });
+            }}
           >
             시작하기
           </CommonButton>
