@@ -2,7 +2,8 @@ import "./CommonButton.css";
 
 const CommonButton = ({
   color,
-  size,
+  width,
+  height,
   fontSize,
   fontColor,
   radius,
@@ -17,11 +18,11 @@ const CommonButton = ({
       style={{
         backgroundColor: color,
         color: fontColor,
-        width: `${64 * (size || 1)}px`,
-        height: `${24 * (size || 1)}px`,
+        width: width || "64px",
+        height: height || "24px",
         fontSize: fontSize,
-        borderRadius: `${radius}px`,
-        border: `${borderSize}px solid ${borderColor || "black"}`,
+        borderRadius: radius || "0",
+        border: `${borderSize} solid ${borderColor || "black"}`,
       }}
       onClick={callback || (() => {})}
     >

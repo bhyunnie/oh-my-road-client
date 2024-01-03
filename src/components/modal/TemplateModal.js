@@ -4,9 +4,7 @@ import "./TemplateModal.css";
 const TemplateModal = ({ children }) => {
   return (
     <React.Fragment>
-      <div className="dimmed-area">
-        <div className="modal">{children}</div>
-      </div>
+      <div className="dimmed-area">{children}</div>
     </React.Fragment>
   );
 };

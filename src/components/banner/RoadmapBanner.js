@@ -50,10 +50,11 @@ const RoadmapBanner = ({ width, height }) => {
         </div>
         <div className="button-wrapper">
           <CommonButton
-            size={2.2}
-            borderSize={2}
+            width={"140px"}
+            height={"50px"}
+            borderSize={"2px"}
             borderColor={"transparent"}
-            radius={5}
+            radius={"5px"}
             callback={() => {
               openModal({ name: "help", index: 1 });
             }}
@@ -61,10 +62,11 @@ const RoadmapBanner = ({ width, height }) => {
             도움말
           </CommonButton>
           <CommonButton
-            size={2.2}
+            width={"140px"}
+            height={"50px"}
             borderColor={"transparent"}
-            radius={5}
-            borderSize={2}
+            radius={"5px"}
+            borderSize={"2px"}
             color={militaryColorTheme["--military-dark-green"]}
             fontColor={"white"}
             callback={() => {

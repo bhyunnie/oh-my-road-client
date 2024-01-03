@@ -9,9 +9,17 @@ const Modals = () => {
   useEffect(() => {
     console.log(openedModalList);
   }, [openedModalList]);
+
+  const isExistModal = (name) => {
+    console.log(openedModalList);
+    const is = openedModalList.find((modal) => modal.name.name === name);
+    console.log(is);
+    return is;
+  };
+
   return (
     <div className="modals">
-      <LoginModal></LoginModal>
+      <LoginModal status={isExistModal("discordLogin")}></LoginModal>
       <HelpModal></HelpModal>
     </div>
   );
