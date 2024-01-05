@@ -5,32 +5,53 @@ const LocationContext = React.createContext({
   getURL: () => {},
   getQueryParams: () => {},
   getPath: () => {},
+  getHashTagParam: () => {},
 });
 
 const useLocationInfo = () => {
   const location = useLocation();
-  const queryParams = useSearchParams();
+  const [queryParams] = useSearchParams();
 
   const getURL = () => {
-    return location.pathname;
+    return window.location.href;
   };
 
   const getQueryParams = () => {
-    return queryParams;
+    return decodeURIComponent(queryParams.toString())
+      .split("&")
+      .reduce((tempObject, param) => {
+        const tempArr = param.split("=");
+        tempObject[tempArr[0]] = tempArr[1];
+        return tempObject;
+      }, {});
   };
 
   const getPath = () => {
-    return location.pathname.split("/"); // 혹은 필요한 로직으로 URL 경로를 가공
+    return location.pathname;
   };
 
-  return { getURL, getQueryParams, getPath };
+  const getHashTagParam = () => {
+    return location.hash
+      .slice(1)
+      .split("&")
+      .reduce((tempObject, param) => {
+        const tempArr = param.split("=");
+        tempObject[tempArr[0]] = tempArr[1];
+        return tempObject;
+      }, {});
+  };
+
+  return { getURL, getQueryParams, getPath, getHashTagParam };
 };
 
 const LocationProvider = ({ children }) => {
-  const { getURL, getQueryParams, getPath } = useLocationInfo();
+  const { getURL, getQueryParams, getPath, getHashTagParam } =
+    useLocationInfo();
 
   return (
-    <LocationContext.Provider value={{ getURL, getPath, getQueryParams }}>
+    <LocationContext.Provider
+      value={{ getURL, getPath, getQueryParams, getHashTagParam }}
+    >
       {children}
     </LocationContext.Provider>
   );
