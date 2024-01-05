@@ -6,15 +6,10 @@ import { ModalContext } from "../../context/ModalContext";
 const Modals = () => {
   const { openedModalList } = useContext(ModalContext);
 
-  useEffect(() => {
-    console.log(openedModalList);
-  }, [openedModalList]);
+  useEffect(() => {}, [openedModalList]);
 
   const isExistModal = (name) => {
-    console.log(openedModalList);
-    const is = openedModalList.find((modal) => modal.name.name === name);
-    console.log(is);
-    return is;
+    return openedModalList.find((modal) => modal.name === name);
   };
 
   return (
