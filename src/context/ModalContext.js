@@ -9,12 +9,9 @@ const ModalContext = React.createContext({
 const ModalProivder = ({ children }) => {
   const [openedModalList, setOpenedModalList] = useState([]);
 
-  const openModal = (name, index) => {
+  const openModal = (object) => {
     const newList = [...openedModalList];
-    newList.push({
-      name: name,
-      index: index,
-    });
+    newList.push(object);
     setOpenedModalList(newList);
   };
 

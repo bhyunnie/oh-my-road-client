@@ -56,7 +56,7 @@ const RoadmapBanner = ({ width, height }) => {
             borderColor={"transparent"}
             radius={"5px"}
             callback={() => {
-              openModal({ name: "help", index: 1 });
+              openModal({ name: "help" });
             }}
           >
             도움말
@@ -70,7 +70,7 @@ const RoadmapBanner = ({ width, height }) => {
             color={militaryColorTheme["--military-dark-green"]}
             fontColor={"white"}
             callback={() => {
-              openModal({ name: "discordLogin", index: 1 });
+              openModal({ name: "discordLogin" });
             }}
           >
             시작하기
