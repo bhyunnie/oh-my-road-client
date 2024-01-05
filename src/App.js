@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./pages/main/Home";
 import Modals from "./components/modal/MainModal";
 import { ModalProivder } from "./context/ModalContext";
-import Oauth2 from "./external/discord/oauth2";
+import Oauth2 from "./components/external/discord/oauth2";
 import { LocationProvider } from "./context/LocationContext";
 
 function App() {
