@@ -23,8 +23,15 @@ const LoginModal = ({ children, status }) => {
               fontColor={"white"}
               radius={"5px"}
               callback={() => {
-                window.location =
-                  "https://discord.com/api/oauth2/authorize?client_id=1190974106380812318&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A3000&scope=identify";
+                window.open(
+                  `https://discord.com/api/oauth2/authorize?client_id=${
+                    process.env.REACT_APP_DISCORD_APP_ID
+                  }&response_type=code&redirect_uri=${encodeURIComponent(
+                    process.env.REACT_APP_DISCORD_OAUTH_REDIRECT_URL
+                  )}&scope=identify`,
+                  "discordLoginPopup",
+                  "width=500,height=700"
+                );
               }}
             >
               DISCORD 로그인하기
