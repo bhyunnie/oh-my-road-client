@@ -10,25 +10,45 @@ import "./oauth2.css";
  */
 const Oauth2 = () => {
   const [status, setStatus] = useState("wait");
-  const { getHashTagParam } = useContext(LocationContext);
-  const { token_type, access_token } = getHashTagParam();
+  const { getQueryParams } = useContext(LocationContext);
+  const { code } = getQueryParams();
 
   useEffect(() => {
+    
     if (status === "error") {
       setStatus("error");
+    }
+    
+    switch(code) {
+      case 0 > code && 90 < code: 
+      return 'a'
+      default: return 'b'
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const requestBody = new URLSearchParams({
+    client_id: process.env.REACT_APP_DISCORD_CLIENT_ID,
+    client_secret: process.env.REACT_APP_DISCORD_CLIENT_SECRET,
+    grant_type: "authorization_code",
+    code: code,
+    redirect_uri: process.env.REACT_APP_DISCORD_OAUTH_REDIRECT_URL,
+    scope: "identify",
+  });
   axios({
-    method: "GET",
-    url: "https://discord.com/api/users/@me",
+    method: "POST",
+    url: "https://discord.com/api/oauth2/token",
+    data: requestBody.toString(),
     headers: {
-      Authorization: `${token_type} ${access_token}`,
+      "Content-Type": "application/x-www-form-urlencoded",
     },
   })
-    .then((result) => {
-      console.log(result);
+    .then((response) => {
+      console.log(response);
+      // TODO
+      // 서버에 날려서 확인받기
+
+      setStatus("success");
     })
     .catch((error) => {
       console.log(error);

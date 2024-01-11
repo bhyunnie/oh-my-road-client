@@ -26,9 +26,9 @@ const LoginModal = ({ children, status }) => {
                 window.open(
                   `https://discord.com/api/oauth2/authorize?client_id=${
                     process.env.REACT_APP_DISCORD_APP_ID
-                  }&response_type=token&redirect_uri=${encodeURIComponent(
+                  }&response_type=code&redirect_uri=${encodeURIComponent(
                     process.env.REACT_APP_DISCORD_OAUTH_REDIRECT_URL
-                  )}&scope=identify`,
+                  )}&scope=identify&prompt=none`,
                   "discordLoginPopup",
                   "width=500,height=800"
                 );
